@@ -8,10 +8,11 @@ on:
       board:
         description: 'board'
         required: true
+        default: 'xiao_ble'
       shield:
         description: 'shield'
         required: false
-        default: 'default'
+        default: 'totem_left,totem_right'
       alphas:
         description: 'alphas'
         required: false
@@ -31,7 +32,7 @@ on:
       nav:
         description: 'nav'
         required: false
-        default: 'default'
+        default: 'vi'
         type: choice
         options:
         - "default"
