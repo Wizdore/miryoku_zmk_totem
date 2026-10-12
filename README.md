@@ -33,7 +33,8 @@ boards/shields/totem/        # TOTEM shield definition and physical layout
 config/
   west.yml                   # ZMK version (pinned to v0.3)
   totem.keymap               # Keymap entry point (pulls in Miryoku)
-  totem.conf                 # Kconfig options (sleep, pointing, ...)
+  totem.conf                 # Kconfig options for both halves (name, sleep, pointing, ...)
+  totem_left.conf            # Kconfig options for the left half only (battery proxy)
   custom_config.h            # Miryoku options
   miryoku/                   # Miryoku ZMK core and TOTEM mapping
 ```
@@ -71,8 +72,15 @@ for details.
 
 ### ZMK settings
 
-Edit [`config/totem.conf`](config/totem.conf). See the
+Edit [`config/totem.conf`](config/totem.conf) for both halves, or
+[`config/totem_left.conf`](config/totem_left.conf) for the left half only. See the
 [ZMK configuration docs](https://zmk.dev/docs/config) for available options.
+
+### Battery levels
+
+The left half reports both batteries to the computer. Most operating systems only
+show the first one; use an app such as
+[ZMK Battery Bar](https://github.com/itouuuuuuuuu/zmk-battery-bar) (macOS) to see both.
 
 ### ZMK version
 
