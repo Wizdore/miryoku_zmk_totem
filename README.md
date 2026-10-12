@@ -57,7 +57,9 @@ return to the Miryoku keymap from this repo.
 ### Miryoku options
 
 Add or remove `#define` lines in [`config/custom_config.h`](config/custom_config.h).
-The current config sets `MIRYOKU_NAV_VI`.
+The current config sets `MIRYOKU_NAV_VI` and `MIRYOKU_CLIPBOARD_MAC` (⌘ shortcuts for
+the clipboard keys), and overrides the Mouse layer to add Back (mouse button 4) and
+Forward (mouse button 5) on the right pinky home and bottom keys.
 
 | Option    | Defines                                                                                   |
 |-----------|-------------------------------------------------------------------------------------------|
