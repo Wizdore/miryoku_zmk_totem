@@ -34,7 +34,7 @@ means the right pinky home-row key, whatever layer you are on.
 | Layout | Miryoku, **Colemak-DH** alphas, **vi-style** arrows, **macOS** (⌘) clipboard shortcuts, Back/Forward mouse buttons added |
 | Device name | `Shaon's ToTeM` (Bluetooth and USB). USB ID `1D50:615E` (ZMK default) |
 | Bluetooth | 5 host profiles (keys for profiles 0–3), plus the link between the halves |
-| Sleep | Deep sleep after **4 hours** without key presses |
+| Sleep | Deep sleep after **1 hour** without key presses |
 | Battery | Both halves reported to the computer; shown with ZMK Battery Bar on macOS |
 | Live editing | ZMK Studio on the left half, over USB or Bluetooth, no unlock needed |
 | Builds | GitHub Actions on every push; `master` builds are published to the [`latest` release](../../releases/latest) |
@@ -372,13 +372,13 @@ Miryoku:
   menu bar. If it shows only one, forget and re-pair the keyboard on the Mac.
 - **Idle:** after 30 s without a key press the keyboard enters a light idle state
   (nothing visible on this keyboard).
-- **Deep sleep:** after **4 hours** without a key press (`CONFIG_ZMK_IDLE_SLEEP_TIMEOUT`).
+- **Deep sleep:** after **1 hour** without a key press (`CONFIG_ZMK_IDLE_SLEEP_TIMEOUT`).
   Bluetooth disconnects and power use drops to almost nothing. Press any key to wake;
   that key press is not typed, and reconnecting takes a few seconds. Each half sleeps on
   its own (the right half counts only its own key presses).
-- **Battery cost of the 4 h timeout:** awake but idle, the left half draws roughly
+- **Battery cost of the 1 h timeout:** awake but idle, the left half draws roughly
   0.5 mA and the right half roughly 0.02 mA (ZMK's estimates), so leaving the keyboard
-  costs the left half up to about 2 mAh before it sleeps.
+  costs the left half up to about 0.5 mAh before it sleeps.
 
 ## ZMK Studio (live keymap editing)
 
@@ -459,7 +459,7 @@ docker run --rm -v "$PWD:/repo" -w /repo zmkfirmware/zmk-build-arm:stable sh -c 
 | Setting | Effect |
 |---|---|
 | `CONFIG_ZMK_POINTING=y` | Mouse keys |
-| `CONFIG_ZMK_SLEEP=y`, `CONFIG_ZMK_IDLE_SLEEP_TIMEOUT=14400000` | Deep sleep after 4 h |
+| `CONFIG_ZMK_SLEEP=y`, `CONFIG_ZMK_IDLE_SLEEP_TIMEOUT=3600000` | Deep sleep after 1 h |
 | `CONFIG_ZMK_KEYBOARD_NAME="Shaon's ToTeM"` | Bluetooth and USB name |
 | `CONFIG_BT_DEVICE_NAME_DYNAMIC=n` | Always use the firmware name (renames apply after a reflash) |
 | `# CONFIG_USB_DEVICE_MANUFACTURER` | Commented out (ZMK default manufacturer) |
